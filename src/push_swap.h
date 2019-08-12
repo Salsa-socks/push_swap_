@@ -6,7 +6,7 @@
 /*   By: bnkosi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/21 09:50:20 by bnkosi            #+#    #+#             */
-/*   Updated: 2019/08/12 13:37:20 by bnkosi           ###   ########.fr       */
+/*   Updated: 2019/08/12 14:46:40 by bnkosi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 #include <unistd.h>
 #include <limits.h>
 
-typedef struct 	t_stack
+typedef struct 	s_stack
 {
 	int			*a_stack;
 	int 		*b_stack;
@@ -30,7 +30,7 @@ typedef struct 	t_stack
 	int			prnt_instrc;
 }				t_stack;
 
-typedef struct 	m_moves
+typedef struct 	s_moves
 {
 	int			a_moves;
 	int			b_moves;
@@ -67,7 +67,7 @@ void			free_moves(m_moves *moves);
 //static int		get_instruction(t_stack *stack, char *instr);
 //static void		split_args(int argc, char **argv, t_stack *stack);
 int				find_in_a(int *stack, int len, int el, char **rot_type);
-static void		insert_in_a(t_stack *stack);
+//static void		insert_in_a(t_stack *stack);
 void			global_sort(t_stack *stack);
 void			initialize_stack(t_stack *stack, int argc);
 int				parse_opts(int *argc, char ***argv, t_stack *stack);

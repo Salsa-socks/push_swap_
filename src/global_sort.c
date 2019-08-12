@@ -6,7 +6,7 @@
 /*   By: bnkosi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/28 10:53:03 by bnkosi            #+#    #+#             */
-/*   Updated: 2019/08/12 13:36:54 by bnkosi           ###   ########.fr       */
+/*   Updated: 2019/08/12 14:45:57 by bnkosi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,10 +83,18 @@ static void	process_moves(m_moves *bst_move, t_stack *stack)
 {
 	while (bst_move->a_moves)
 	{
-		if (ft_strequ(bst_move->art, "rb"))
-			do_rb(stack);
+		if (ft_strequ(bst_move->art, "ra"))
+			do_ra(stack);
 		else
 			do_rra(stack);
+		bst_move->a_moves--;
+	}
+	while (bst_move->b_moves)
+	{
+		if (ft_strequ(bst_move->brt, "rb"))
+			do_rb(stack);
+		else
+			do_rrb(stack);
 		bst_move->b_moves--;
 	}
 }
