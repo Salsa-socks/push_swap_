@@ -6,7 +6,7 @@
 /*   By: bnkosi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/30 14:08:11 by bnkosi            #+#    #+#             */
-/*   Updated: 2019/08/11 09:43:30 by bnkosi           ###   ########.fr       */
+/*   Updated: 2019/08/12 13:25:23 by bnkosi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ static int		validate_args(char **argv, char *arg, int start)
 	int i;
 
 	i = 0;
-	while (*arg && arg[i] !+ '\0')
+	while (*arg && arg[i] != '\0')
 	{
-		if (!ft_digit(arg[i]) && arg[i] != '-')
+		if (!ft_isdigit(arg[i]) && arg[i] != '-')
 			return (0);
 		i++;
 	}
@@ -40,7 +40,7 @@ void			initialize_stack(t_stack *stack, int argc)
 	stack->b_stack = (int *)malloc(sizeof(int) * argc);
 	stack->a_size = argc;
 	stack->b_size = 0;
-	stack->res_intrc = 0;
+	stack->res_instrc = 0;
 	stack->prnt_instrc = 1;
 }
 
@@ -51,13 +51,13 @@ int				parse_opts(int *argc, char ***argv, t_stack *stack)
 	i = 0;
 	stack->result = 0;
 	stack->show_stack = 0;
-	stack_show_stack = 0;
+	stack->show_stack = 0;
 	while (i < *argc && *((*argv)[i]) == '-')
 	{
 		if (ft_strequ((*argv)[i], "-v"))
 			stack->show_stack = 1;
 		else if (ft_strequ((*argv)[i], "-t"))
-			stack->total = 1;
+			stack->result = 1;
 		else
 		{
 			ft_putstr_fd("Error\n", 2);
@@ -70,7 +70,7 @@ int				parse_opts(int *argc, char ***argv, t_stack *stack)
 	return (i);
 }
 
-t_stack			*parse_args(int argc, char **argv, t_stack stack)
+t_stack			*parse_args(int argc, char **argv, t_stack *stack)
 {
 	int			i;
 
@@ -78,7 +78,7 @@ t_stack			*parse_args(int argc, char **argv, t_stack stack)
 	while (i < argc)
 	{
 		if (validate_args(argv, argv[i], i + 1))
-			stack-a_stack[i] = ft_atoll(argv[i]);
+			stack->a_stack[i] = ft_atoll(argv[i]);
 		else
 		{
 			free_stack(stack);

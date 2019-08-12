@@ -6,7 +6,7 @@
 #    By: bnkosi <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/08/11 11:53:18 by bnkosi            #+#    #+#              #
-#    Updated: 2019/08/12 08:58:10 by bnkosi           ###   ########.fr        #
+#    Updated: 2019/08/12 13:27:23 by bnkosi           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,8 +27,8 @@ OBJ_DIR			= 	obj
 CHSRC		=	$(NAME_1).c\
 				push_swap.c\
 				parse_args.c\
-				apply_instr.c\
-				apply_rr.c\
+				do_instrc.c\
+				do_rr.c\
 				do_rrr.c \
 				begin_sort.c\
 				global_sort.c\
@@ -41,9 +41,9 @@ CHSRC		=	$(NAME_1).c\
 PSSRC		=	$(NAME_2).c\
 				checker.c\
 				parse_args.c\
-				apply_instr.c\
-				apply_rr.c\
-				apply_rrr.c \
+				do_instr.c\
+				do_rr.c\
+				do_rrr.c \
 				stack_manipulations.c
 
 CHC = $(addprefix $(OBJ_PATH), $(CHSRC))

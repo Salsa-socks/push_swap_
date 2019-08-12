@@ -6,7 +6,7 @@
 /*   By: bnkosi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/12 06:31:01 by bnkosi            #+#    #+#             */
-/*   Updated: 2019/08/12 06:33:28 by bnkosi           ###   ########.fr       */
+/*   Updated: 2019/08/12 13:30:07 by bnkosi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,11 @@ void	do_ra(t_stack *stack)
 	if (stack->show_stack)
 	{
 		ft_putstr("A: ");
-		ft_print_array(stack->a_stack, stack->a_stack);
+		ft_print_array(stack->a_stack, stack->a_size);
 		if (stack->b_size)
 		{
 			ft_putstr("B: ");
-			ft_print_array(stack->b_stack, stack->b_stack);
+			ft_print_array(stack->b_stack, stack->b_size);
 		}
 	}
 	stack->res_instrc++;
@@ -46,6 +46,7 @@ void	do_rb(t_stack *stack)
 	int i;
 	int tmp;
 
+	tmp = 0;
 	i = 1;
 	if (stack->b_size == 0)
 		return ;

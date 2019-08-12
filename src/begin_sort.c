@@ -6,7 +6,7 @@
 /*   By: bnkosi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/11 13:51:03 by bnkosi            #+#    #+#             */
-/*   Updated: 2019/08/11 14:02:38 by bnkosi           ###   ########.fr       */
+/*   Updated: 2019/08/12 13:32:47 by bnkosi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,9 @@ void		sort(t_stack *stack)
 {
 	if (sorted(stack->a_stack, stack->a_size) && stack->b_size == 0)
 		return ;
-	if (stack->print_stack)
+	if (stack->show_stack)
 	{
-		ft_print_int_array(stack->a_stack, stack->a_size);
+		ft_print_array(stack->a_stack, stack->a_size);
 	}
 	if (stack->a_size <= 3)
 		return (sort_3(stack));
@@ -50,8 +50,7 @@ void		sort(t_stack *stack)
 		global_sort(stack);
 	if (stack->show_stack)
 	{
-		write(1,"Sorted array: ", 16);
-		ft_print_int_array(stack->a_stack, stack->a_size);
+		write(1, "Sorted array: ", 16);
+		ft_print_array(stack->a_stack, stack->a_size);
 	}
 }
-

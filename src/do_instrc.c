@@ -6,7 +6,7 @@
 /*   By: bnkosi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/12 06:18:08 by bnkosi            #+#    #+#             */
-/*   Updated: 2019/08/12 06:20:27 by bnkosi           ###   ########.fr       */
+/*   Updated: 2019/08/12 13:28:03 by bnkosi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ void	do_pa(t_stack *stack)
 	if (stack->b_size == 0)
 		return ;
 	i = stack->a_size;
-	while(i-- > 0)
+	while (i-- > 0)
 		stack->a_stack[i + 1] = stack->a_stack[i];
 	stack->a_stack[0] = stack->b_stack[0];
 	i = 0;
@@ -100,7 +100,7 @@ void	do_pa(t_stack *stack)
 		stack->b_stack[i - 1] = stack->b_stack[i];
 	stack->a_size++;
 	stack->b_size--;
-	stack->prnt_instrc ? write(1, "pa\n", 3): 0;
+	stack->prnt_instrc ? write(1, "pa\n", 3) : 0;
 	if (stack->show_stack)
 	{
 		write(1, "A: ", 3);
@@ -118,7 +118,7 @@ void	do_pb(t_stack *stack)
 {
 	int i;
 
-	if (stack->a_size = 0)
+	if (stack->a_size == 0)
 		return ;
 	i = stack->b_size;
 	while (i-- > 0)

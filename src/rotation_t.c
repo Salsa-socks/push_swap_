@@ -6,13 +6,13 @@
 /*   By: bnkosi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/12 08:33:45 by bnkosi            #+#    #+#             */
-/*   Updated: 2019/08/12 08:34:14 by bnkosi           ###   ########.fr       */
+/*   Updated: 2019/08/12 10:38:39 by bnkosi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	art(int len, int pos, char **a_rot)
+int		art(int len, int pos, char **a_rot)
 {
 	if (pos > len / 2)
 	{

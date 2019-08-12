@@ -6,12 +6,12 @@
 /*   By: bnkosi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/06 06:54:30 by bnkosi            #+#    #+#             */
-/*   Updated: 2019/08/06 09:39:09 by bnkosi           ###   ########.fr       */
+/*   Updated: 2019/08/12 13:16:06 by bnkosi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
+/*
 static int	get_instruction(t_stack *stack, char *instr)
 {
 	if (ft_strequ(instr, "sa"))
@@ -21,7 +21,7 @@ static int	get_instruction(t_stack *stack, char *instr)
 	else if (ft_strequ(instr, "ss"))
 		do_ss(stack);
 	else if (ft_strequ(instr, "pa"))
-		apply_pa(stack);
+		do_pa(stack);
 	else if (ft_strequ(instr, "pb"))
 		do_pb(stack);
 	else if (ft_strequ(instr, "ra"))
@@ -39,13 +39,13 @@ static int	get_instruction(t_stack *stack, char *instr)
 	else
 		return (-1);
 	return (0);
-}
-
+}*/
+/*
 static void	do_instrc(t_stack *stack)
 {
 	char *instrc;
 
-	while (get_next_line(0, *instrc) > 0)
+	while (get_next_line(0, &instrc) > 0)
 	{
 		if (!instrc)
 			break;
@@ -60,9 +60,9 @@ static void	do_instrc(t_stack *stack)
 		instrc = NULL;
 	}
 	free (instrc);
-}
+}*/
 
-static void	split_args(int argc, char **argv, t_stack stack)
+static void	split_args(int argc, char **argv, t_stack *stack)
 {
 	argv = ft_strsplit(argv[0], ' ');
 	argc = 0;
@@ -89,7 +89,7 @@ int		main(int argc, char **argv)
 	initialize_stack(stack, argc);
 	stack = parse_args(argc, argv, stack);
 	stack->prnt_instrc = 0;
-	if (!(is_sorted(stack->a_stack, stack->a_size))
+	if (!(is_sorted(stack->a_stack, stack->a_size)))
 			ft_putstr("OK\n");
 	else
 			ft_putstr("KO\n");

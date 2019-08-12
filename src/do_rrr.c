@@ -6,13 +6,13 @@
 /*   By: bnkosi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/12 06:49:53 by bnkosi            #+#    #+#             */
-/*   Updated: 2019/08/12 06:51:32 by bnkosi           ###   ########.fr       */
+/*   Updated: 2019/08/12 13:31:39 by bnkosi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void do_rra(t_stack, *stack)
+void do_rra(t_stack *stack)
 {
 	int i;
 	int tmp;
@@ -41,7 +41,7 @@ void do_rra(t_stack, *stack)
 	stack->res_instrc++;
 }
 
-void	do_rrb(t_stack, *stack)
+void	do_rrb(t_stack *stack)
 {
 	int i;
 	int tmp;
@@ -70,7 +70,7 @@ void	do_rrb(t_stack, *stack)
 	stack->res_instrc++;
 }
 
-void	do_rrr(t_stack, *stack)
+void	do_rrr(t_stack *stack)
 {
 	int	tmp_instrc;
 	int	tmp_stack;

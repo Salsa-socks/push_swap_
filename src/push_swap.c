@@ -6,7 +6,7 @@
 /*   By: bnkosi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/07 10:08:43 by bnkosi            #+#    #+#             */
-/*   Updated: 2019/08/07 10:18:21 by bnkosi           ###   ########.fr       */
+/*   Updated: 2019/08/12 13:18:59 by bnkosi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int			main(int argc, char **argv)
 
 	(argc-- == 1) ? exit(0) : argv++;
 	stack = (t_stack *)malloc(sizeof(t_stack));
-	opts = parse_opts(&argv, &argv, stack);
+	opts = parse_opts(&argc, &argv, stack);
 	if (argc == 1)
 	{
 		argv = ft_strsplit(argv[0], ' ');

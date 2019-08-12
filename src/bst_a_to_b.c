@@ -6,7 +6,7 @@
 /*   By: bnkosi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/28 12:03:34 by bnkosi            #+#    #+#             */
-/*   Updated: 2019/08/11 11:19:27 by bnkosi           ###   ########.fr       */
+/*   Updated: 2019/08/12 10:36:40 by bnkosi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,8 @@ static int		find_in_b(int *stack, int l, int el, char **rot_type)
 	else
 		while (i < l)
 		{
-			if (el < stack[i] && ((i + 1 < l && el > stack[i + 1]) || (i + 1 == l && el > stack[0])))
+			if (el < stack[i] && ((i + 1 < l && el > stack[i + 1]) /
+						|| (i + 1 == l && el > stack[0])))
 			{
 				place = i + 1;
 				break;

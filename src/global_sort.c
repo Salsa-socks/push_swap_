@@ -6,7 +6,7 @@
 /*   By: bnkosi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/28 10:53:03 by bnkosi            #+#    #+#             */
-/*   Updated: 2019/08/11 11:36:13 by bnkosi           ###   ########.fr       */
+/*   Updated: 2019/08/12 13:36:54 by bnkosi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,11 @@ int			find_in_a(int *stack, int len, int elem, char **rot_type)
 			if (elem > stack[i] && ((i + 1 < len && elem < stack[i + 1]) || (i + 1 == len && elem < stack[0])))
 			{
 				place = i + 1;
-				break
+				break;
 			}
 			i++;
 		}
-	return (a_rot_type(len, place, rot_type));
+	return (art(len, place, rot_type));
 }
 
 static void	insert_in_a(t_stack *stack)
@@ -69,7 +69,7 @@ static void insert_in_b(t_stack *stack)
 	indx = 0;
 	while(stack->a_size > 2)
 	{
-		indx = min_elem(stack->a_stack, stack-.a_size);
+		indx = min_elem(stack->a_stack, stack->a_size);
 		if (indx == 0)
 			do_pb(stack);
 		else if (indx <= stack->a_size / 2)
@@ -83,7 +83,7 @@ static void	process_moves(m_moves *bst_move, t_stack *stack)
 {
 	while (bst_move->a_moves)
 	{
-		if (ft_strequ(bst_move->a_rot_type, "rb"))
+		if (ft_strequ(bst_move->art, "rb"))
 			do_rb(stack);
 		else
 			do_rra(stack);
