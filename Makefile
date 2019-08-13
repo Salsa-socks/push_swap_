@@ -6,13 +6,13 @@
 #    By: bnkosi <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/08/11 11:53:18 by bnkosi            #+#    #+#              #
-#    Updated: 2019/08/13 08:09:27 by bnkosi           ###   ########.fr        #
+#    Updated: 2019/08/13 09:04:42 by bnkosi           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME_1		=	checker
+NAME_1		=	push_swap
 
-NAME_2		=	push_swap
+NAME_2		=	checker
 
 LIB_PATH	=	./libft/
 
@@ -24,8 +24,7 @@ OBJ_PATH	=	./obj/
 
 OBJ_DIR			= 	obj
 
-CHSRC		=	$(NAME_1).c\
-				push_swap.c\
+PSSRC		=	$(NAME_1).c\
 				parse_args.c\
 				do_instrc.c\
 				do_rr.c\
@@ -38,10 +37,9 @@ CHSRC		=	$(NAME_1).c\
 				bst_a_to_b.c
 					
 
-PSSRC		=	$(NAME_2).c\
-				checker.c\
+CHSRC		=	$(NAME_2).c\
 				parse_args.c\
-				do_instr.c\
+				do_instrc.c\
 				do_rr.c\
 				do_rrr.c \
 				stack_man.c
@@ -62,12 +60,12 @@ $(OBJ_DIR):
 libft:
 	@$(MAKE) -C $(LIB_PATH)/
 
-$(NAME_1): $(OBJ_DIR) $(CHO) libft
-	@gcc $(FLAGS) $(CHO) -L $(LIB_PATH) -lft -o $(NAME_1) 
+$(NAME_1): $(OBJ_DIR) $(PSO) libft
+	@gcc $(FLAGS) $(PSO) -L $(LIB_PATH) -lft -o $(NAME_1) 
 	@echo "$(NAME_1) Created."
 
-$(NAME_2): $(OBJ_DIR) $(PSO) libft
-	@gcc $(FLAGS) $(PSO) -L $(LIB_PATH) -lft -o $(NAME_2) 
+$(NAME_2): $(OBJ_DIR) $(CHO) libft
+	@gcc $(FLAGS) $(CHO) -L $(LIB_PATH) -lft -o $(NAME_2) 
 	@echo "$(NAME_2) Created."
 
 $(OBJ_PATH)%.o: $(SRC_PATH)%.c

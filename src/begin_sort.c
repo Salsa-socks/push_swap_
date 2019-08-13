@@ -6,7 +6,7 @@
 /*   By: bnkosi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/11 13:51:03 by bnkosi            #+#    #+#             */
-/*   Updated: 2019/08/12 13:32:47 by bnkosi           ###   ########.fr       */
+/*   Updated: 2019/08/13 08:27:20 by bnkosi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ static void	sort_3(t_stack *stack)
 
 void		sort(t_stack *stack)
 {
-	if (sorted(stack->a_stack, stack->a_size) && stack->b_size == 0)
+	if (is_sorted(stack->a_stack, stack->a_size) && stack->b_size == 0)
 		return ;
 	if (stack->show_stack)
 	{
