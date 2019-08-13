@@ -6,7 +6,7 @@
 #    By: bnkosi <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/08/11 11:53:18 by bnkosi            #+#    #+#              #
-#    Updated: 2019/08/12 13:27:23 by bnkosi           ###   ########.fr        #
+#    Updated: 2019/08/13 08:09:27 by bnkosi           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,10 +32,10 @@ CHSRC		=	$(NAME_1).c\
 				do_rrr.c \
 				begin_sort.c\
 				global_sort.c\
-				stack_manipulations.c\
-				sort_helper.c \
-				rotation_type.c\
-				best_way_from_a_to_b.c
+				stack_man.c\
+				sorterh.c \
+				rotation_t.c\
+				bst_a_to_b.c
 					
 
 PSSRC		=	$(NAME_2).c\
@@ -44,7 +44,7 @@ PSSRC		=	$(NAME_2).c\
 				do_instr.c\
 				do_rr.c\
 				do_rrr.c \
-				stack_manipulations.c
+				stack_man.c
 
 CHC = $(addprefix $(OBJ_PATH), $(CHSRC))
 

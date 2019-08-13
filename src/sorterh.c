@@ -6,7 +6,7 @@
 /*   By: bnkosi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/22 09:09:08 by bnkosi            #+#    #+#             */
-/*   Updated: 2019/08/12 07:58:59 by bnkosi           ###   ########.fr       */
+/*   Updated: 2019/08/13 08:07:17 by bnkosi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int		min_idx(int *stack, int slen)
 	return (index);
 }
 
-int		max_idx(int *stackm int slen)
+int		max_idx(int *stack, int slen)
 {
 	int i;
 	int tmp;
@@ -81,7 +81,7 @@ int		min_elem(int *stack, int slen)
 	return (index);
 }
 
-int		max_elem(int *stackm int slen)
+int		max_elem(int *stack, int slen)
 {
 	int i;
 	int tmp;

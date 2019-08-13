@@ -6,7 +6,7 @@
 /*   By: bnkosi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/12 08:33:45 by bnkosi            #+#    #+#             */
-/*   Updated: 2019/08/12 10:38:39 by bnkosi           ###   ########.fr       */
+/*   Updated: 2019/08/13 08:08:46 by bnkosi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int		art(int len, int pos, char **a_rot)
 			pos = len - pos;
 	}
 	else
-		*a_rot = ft_strcpy(a_rot, "ra");
+		*a_rot = ft_strcpy(*a_rot, "ra");
 	return (pos);
 }
 
@@ -34,6 +34,6 @@ int		brt(int len, int pos, char **b_rot)
 			pos = len - pos;
 	}
 	else
-		*b_rot = ft_strcpy(b_rot, "rb");
+		*b_rot = ft_strcpy(*b_rot, "rb");
 	return (pos);
 }
