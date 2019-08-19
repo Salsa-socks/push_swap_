@@ -6,7 +6,7 @@
 /*   By: bnkosi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/28 10:53:03 by bnkosi            #+#    #+#             */
-/*   Updated: 2019/08/17 10:30:48 by bnkosi           ###   ########.fr       */
+/*   Updated: 2019/08/19 08:50:16 by bnkosi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,26 @@
 
 int			find_in_a(int *stack, int len, int elem, char **rot_type)
 {
-	int 	i;
-	int 	place;
+	int		i;
+	int		place;
 
 	i = 0;
 	place = 0;
-	if(len == 2 && elem > stack[0] && elem < stack[1])
+	if (len == 2 && elem > stack[0] && elem < stack[1])
 		place = 1;
 	else if (len == 2 && elem < stack[0] && elem > stack[1])
 		place = 0;
-	else if (elem > stack[max_elem(stack, len)] || elem < stack[min_elem(stack, len)])
+	else if (elem > stack[max_elem(stack, len)] ||
+			elem < stack[min_elem(stack, len)])
 		place = min_elem(stack, len);
 	else
 		while (i < len)
 		{
-			if (elem > stack[i] && ((i + 1 < len && elem < stack[i + 1]) || (i + 1 == len && elem < stack[0])))
+			if (elem > stack[i] && ((i + 1 < len && elem <
+							stack[i + 1]) || (i + 1 == len && elem < stack[0])))
 			{
 				place = i + 1;
-				break;
+				break ;
 			}
 			i++;
 		}
@@ -47,7 +49,8 @@ static void	insert_in_a(t_stack *stack)
 	rot_type = ft_strnew(3);
 	while (stack->b_size)
 	{
-		rot_num = find_in_a(stack->a_stack,stack->a_size, stack->b_stack[0], &rot_type);
+		rot_num = find_in_a(stack->a_stack, stack->a_size,
+				stack->b_stack[0], &rot_type);
 		while (rot_num > 0)
 		{
 			if (ft_strequ(rot_type, "ra"))
@@ -62,12 +65,12 @@ static void	insert_in_a(t_stack *stack)
 	free(rot_type);
 }
 
-static void insert_in_b(t_stack *stack)
+static void	insert_in_b(t_stack *stack)
 {
 	int indx;
 
 	indx = 0;
-	while(stack->a_size > 2)
+	while (stack->a_size > 2)
 	{
 		indx = min_elem(stack->a_stack, stack->a_size);
 		if (indx == 0)
@@ -79,7 +82,7 @@ static void insert_in_b(t_stack *stack)
 	}
 }
 
-static void	process_moves(m_moves *bst_move, t_stack *stack)
+static void	process_moves(t_moves *bst_move, t_stack *stack)
 {
 	while (bst_move->a_moves)
 	{
@@ -101,10 +104,10 @@ static void	process_moves(m_moves *bst_move, t_stack *stack)
 
 void		global_sort(t_stack *stack)
 {
-	m_moves *bst_move;
+	t_moves *bst_move;
 	int		optimal;
 
-	optimal = (stack->a_size > 200) ? 50: 2;
+	optimal = (stack->a_size > 200) ? 50 : 2;
 	while (stack->b_size != 2)
 		do_pb(stack);
 	while (stack->a_size > optimal)

@@ -6,7 +6,7 @@
 /*   By: bnkosi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/28 12:03:34 by bnkosi            #+#    #+#             */
-/*   Updated: 2019/08/16 13:52:48 by bnkosi           ###   ########.fr       */
+/*   Updated: 2019/08/19 08:48:34 by bnkosi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,18 +28,18 @@ static int		find_in_b(int *stack, int l, int el, char **rot_type)
 	else
 		while (i < l)
 		{
-			if (el < stack[i] && ((i + 1 < l && el > stack[i + 1]) 
+			if (el < stack[i] && ((i + 1 < l && el > stack[i + 1])
 						|| (i + 1 == l && el > stack[0])))
 			{
 				place = i + 1;
-				break;
+				break ;
 			}
 			i++;
 		}
 	return (brt(l, place, rot_type));
 }
 
-static int			find_com(m_moves *moves)
+static int		find_com(t_moves *moves)
 {
 	int com;
 
@@ -47,7 +47,8 @@ static int			find_com(m_moves *moves)
 	if ((ft_strequ(moves->art, "rra") && (ft_strequ(moves->brt, "rrb")))
 			|| (ft_strequ(moves->art, "ra") && (ft_strequ(moves->brt, "rb"))))
 	{
-		com = (moves->a_moves > moves->b_moves ? moves->b_moves : moves->a_moves);
+		com = (moves->a_moves > moves->b_moves ? moves->b_moves :
+				moves->a_moves);
 		if (com)
 		{
 			moves->c_rot = ft_strcpy(moves->c_rot, moves->art);
@@ -59,11 +60,11 @@ static int			find_com(m_moves *moves)
 	return (com);
 }
 
-static m_moves		*calc_a_to_b(t_stack *stack, int pos)
+static t_moves	*calc_a_to_b(t_stack *stack, int pos)
 {
-	m_moves *moves;
+	t_moves *moves;
 
-	moves = (m_moves *)malloc(sizeof(m_moves));
+	moves = (t_moves *)malloc(sizeof(t_moves));
 	moves->art = ft_strnew(3);
 	moves->brt = ft_strnew(3);
 	moves->c_rot = ft_strnew(3);
@@ -76,11 +77,11 @@ static m_moves		*calc_a_to_b(t_stack *stack, int pos)
 	return (moves);
 }
 
-m_moves			*bst_a_to_b(t_stack *stack)
+t_moves			*bst_a_to_b(t_stack *stack)
 {
 	int			i;
-	m_moves		*bst_move;
-	m_moves		*moves;
+	t_moves		*bst_move;
+	t_moves		*moves;
 
 	i = 0;
 	while (i < stack->a_size)

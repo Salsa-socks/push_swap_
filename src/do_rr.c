@@ -6,7 +6,7 @@
 /*   By: bnkosi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/12 06:31:01 by bnkosi            #+#    #+#             */
-/*   Updated: 2019/08/16 13:28:16 by bnkosi           ###   ########.fr       */
+/*   Updated: 2019/08/19 08:30:45 by bnkosi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	do_rb(t_stack *stack)
 	int tmp;
 
 	if (stack->b_size == 0)
-		return ;	
+		return ;
 	i = 1;
 	tmp = stack->b_stack[0];
 	while (i < stack->b_size)

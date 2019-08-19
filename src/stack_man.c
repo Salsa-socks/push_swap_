@@ -6,13 +6,13 @@
 /*   By: bnkosi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/12 07:48:53 by bnkosi            #+#    #+#             */
-/*   Updated: 2019/08/16 07:44:13 by bnkosi           ###   ########.fr       */
+/*   Updated: 2019/08/19 08:49:09 by bnkosi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	is_sorted(int *stack, int len)
+int		is_sorted(int *stack, int len)
 {
 	int i;
 
@@ -27,7 +27,7 @@ int	is_sorted(int *stack, int len)
 	return (1);
 }
 
-int rev_sorted(int *stack, int len)
+int		rev_sorted(int *stack, int len)
 {
 	int i;
 
@@ -63,7 +63,7 @@ void	free_stack(t_stack *stack)
 	stack = NULL;
 }
 
-void	free_moves(m_moves *moves)
+void	free_moves(t_moves *moves)
 {
 	free(moves->art);
 	free(moves->brt);

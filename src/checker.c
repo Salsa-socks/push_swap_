@@ -6,7 +6,7 @@
 /*   By: bnkosi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/06 06:54:30 by bnkosi            #+#    #+#             */
-/*   Updated: 2019/08/16 08:17:37 by bnkosi           ###   ########.fr       */
+/*   Updated: 2019/08/19 08:22:16 by bnkosi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,9 +81,9 @@ int			main(int ac, char **av)
 		check_av(stacks, av, ac);
 		get_ins(stacks);
 		if (is_sorted(stacks->a_stack, stacks->a_size) && stacks->b_size == 0)
-			ft_putstr("OK\n");
+			ft_putendl("OK");
 		else
-			ft_putstr("KO\n");
+			ft_putendl("KO");
 		del_stacks(&stacks);
 	}
 	return (0);

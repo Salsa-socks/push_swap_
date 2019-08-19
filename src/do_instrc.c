@@ -6,7 +6,7 @@
 /*   By: bnkosi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/12 06:18:08 by bnkosi            #+#    #+#             */
-/*   Updated: 2019/08/16 12:39:04 by bnkosi           ###   ########.fr       */
+/*   Updated: 2019/08/19 08:33:07 by bnkosi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,6 @@ void	do_ss(t_stack *stacks)
 		stacks->b_stack[1] = tmp;
 	}
 	ft_putendl("ss");
-
 }
 
 void	do_pa(t_stack *stack)
@@ -82,7 +81,7 @@ void	do_pb(t_stack *stack)
 		return ;
 	i = stack->b_size;
 	while (i--)
-			stack->b_stack[i + 1] = stack->b_stack[i];
+		stack->b_stack[i + 1] = stack->b_stack[i];
 	stack->b_stack[0] = stack->a_stack[0];
 	i = 0;
 	while (i++ <= stack->a_size - 1)
