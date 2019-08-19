@@ -6,7 +6,7 @@
 /*   By: bnkosi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/22 09:09:08 by bnkosi            #+#    #+#             */
-/*   Updated: 2019/08/19 08:27:23 by bnkosi           ###   ########.fr       */
+/*   Updated: 2019/08/19 10:05:43 by bnkosi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int		min_idx(int *stack, int slen)
 		if (tmp > stack[i])
 		{
 			tmp = stack[i];
-			index = 1;
+			index = i;
 		}
 		i++;
 	}
@@ -74,7 +74,7 @@ int		min_elem(int *stack, int slen)
 		if (tmp > stack[i])
 		{
 			tmp = stack[i];
-			index = 1;
+			index = i;
 		}
 		i++;
 	}

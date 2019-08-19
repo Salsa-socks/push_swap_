@@ -6,7 +6,7 @@
 /*   By: bnkosi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/12 06:18:08 by bnkosi            #+#    #+#             */
-/*   Updated: 2019/08/19 08:33:07 by bnkosi           ###   ########.fr       */
+/*   Updated: 2019/08/19 09:35:11 by bnkosi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ void	do_pa(t_stack *stack)
 	if (stack->b_size == 0)
 		return ;
 	i = stack->a_size;
-	while (i--)
+	while (i-- > 0)
 		stack->a_stack[i + 1] = stack->a_stack[i];
 	stack->a_stack[0] = stack->b_stack[0];
 	i = 0;
@@ -80,7 +80,7 @@ void	do_pb(t_stack *stack)
 	if (stack->a_size == 0)
 		return ;
 	i = stack->b_size;
-	while (i--)
+	while (i-- > 0)
 		stack->b_stack[i + 1] = stack->b_stack[i];
 	stack->b_stack[0] = stack->a_stack[0];
 	i = 0;
