@@ -6,93 +6,85 @@
 /*   By: bnkosi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/06 06:54:30 by bnkosi            #+#    #+#             */
-/*   Updated: 2019/08/12 13:16:06 by bnkosi           ###   ########.fr       */
+/*   Updated: 2019/08/16 08:17:37 by bnkosi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-/*
-static int	get_instruction(t_stack *stack, char *instr)
+
+static	int	do_rot(t_stack *stacks, char *in)
 {
-	if (ft_strequ(instr, "sa"))
-		do_sa(stack);
-	else if (ft_strequ(instr, "sb"))
-		do_sb(stack);
-	else if (ft_strequ(instr, "ss"))
-		do_ss(stack);
-	else if (ft_strequ(instr, "pa"))
-		do_pa(stack);
-	else if (ft_strequ(instr, "pb"))
-		do_pb(stack);
-	else if (ft_strequ(instr, "ra"))
-		do_ra(stack);
-	else if (ft_strequ(instr, "rb"))
-		do_rb(stack);
-	else if (ft_strequ(instr, "rr"))
-		do_rr(stack);
-	else if (ft_strequ(instr, "rra"))
-		do_rra(stack);
-	else if (ft_strequ(instr, "rrb"))
-		do_rrb(stack);
-	else if (ft_strequ(instr, "rrr"))
-		do_rrr(stack);
+	if (in[2] == '\0')
+		do_rr(stacks);
+	else if (in[2] == 'a' && in[3] == '\0')
+		do_rra(stacks);
+	else if (in[2] == 'b' && in[3] == '\0')
+		do_rrb(stacks);
+	else if (in[2] == 'r' && in[3] == '\0')
+		do_rrr(stacks);
 	else
 		return (-1);
 	return (0);
-}*/
-/*
-static void	do_instrc(t_stack *stack)
-{
-	char *instrc;
+}
 
-	while (get_next_line(0, &instrc) > 0)
+static	int	do_ins(t_stack *stacks, char *in)
+{
+	if (ft_strnequ(in, "rr", 2))
 	{
-		if (!instrc)
-			break;
-		if (get_instruction(stack, instrc))
+		if (do_rot(stacks, in))
+			return (-1);
+	}
+	else if (ft_strequ(in, "sa"))
+		do_sa(stacks);
+	else if (ft_strequ(in, "sb"))
+		do_sb(stacks);
+	else if (ft_strequ(in, "ss"))
+		do_ss(stacks);
+	else if (ft_strequ(in, "pa"))
+		do_pa(stacks);
+	else if (ft_strequ(in, "pb"))
+		do_pb(stacks);
+	else if (ft_strequ(in, "ra"))
+		do_ra(stacks);
+	else if (ft_strequ(in, "rb"))
+		do_rb(stacks);
+	else
+		return (-1);
+	return (0);
+}
+
+static void	get_ins(t_stack *stacks)
+{
+	char *in;
+
+	in = NULL;
+	while (get_next_line(0, &in) > 0)
+	{
+		if (do_ins(stacks, in))
 		{
 			ft_putstr_fd("Error\n", 2);
-			free_stack(stack);
-			free(instrc);
+			del_stacks(&stacks);
+			ft_strdel(&in);
 			exit(1);
 		}
-		free(instrc);
-		instrc = NULL;
-	}
-	free (instrc);
-}*/
-
-static void	split_args(int argc, char **argv, t_stack *stack)
-{
-	argv = ft_strsplit(argv[0], ' ');
-	argc = 0;
-	while (argv && argv[argc])
-		argc++;
-	if (argc == 0)
-	{
-		ft_putstr_fd("Error\n", 2);
-		free(stack);
-		exit(1);
+		ft_strdel(&in);
 	}
 }
 
-int		main(int argc, char **argv)
+int			main(int ac, char **av)
 {
-	t_stack	*stack;
-	int		opts;
+	t_stack	*stacks;
 
-	(argc-- ==  1) ? exit(0): argv++;
-	stack = (t_stack *)malloc(sizeof(t_stack));
-	opts = parse_opts(&argc, &argv, stack);
-	if (argc == 1)
-		split_args(argc, argv, stack);
-	initialize_stack(stack, argc);
-	stack = parse_args(argc, argv, stack);
-	stack->prnt_instrc = 0;
-	if (!(is_sorted(stack->a_stack, stack->a_size)))
+	if (ac > 1)
+	{
+		stacks = (t_stack *)malloc(sizeof(t_stack));
+		check_av(stacks, av, ac);
+		get_ins(stacks);
+		if (is_sorted(stacks->a_stack, stacks->a_size) && stacks->b_size == 0)
 			ft_putstr("OK\n");
-	else
+		else
 			ft_putstr("KO\n");
-	free_stack(stack);
+		del_stacks(&stacks);
+	}
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: bnkosi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/12 06:18:08 by bnkosi            #+#    #+#             */
-/*   Updated: 2019/08/12 13:28:03 by bnkosi           ###   ########.fr       */
+/*   Updated: 2019/08/16 12:39:04 by bnkosi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,18 +21,7 @@ void	do_sa(t_stack *stack)
 	tmp = stack->a_stack[0];
 	stack->a_stack[0] = stack->a_stack[1];
 	stack->a_stack[1] = tmp;
-	stack->prnt_instrc ? write(1, "sa\n", 3) : 0;
-	if (stack->show_stack)
-	{
-		write(1, "A: ", 3);
-		ft_print_array(stack->a_stack, stack->a_size);
-		if (stack->b_size)
-		{
-			write(1, "B: ", 3);
-			ft_print_array(stack->b_stack, stack->b_size);
-		}
-	}
-	stack->res_instrc++;
+	ft_putendl("sa");
 }
 
 void	do_sb(t_stack *stack)
@@ -44,45 +33,27 @@ void	do_sb(t_stack *stack)
 	tmp = stack->b_stack[0];
 	stack->b_stack[0] = stack->b_stack[1];
 	stack->b_stack[1] = tmp;
-	stack->prnt_instrc ? write(1, "sb\n", 3) : 0;
-	if (stack->show_stack)
-	{
-		write(1, "A: ", 3);
-		ft_print_array(stack->a_stack, stack->a_size);
-		if (stack->b_size)
-		{
-			write(1, "B: ", 3);
-			ft_print_array(stack->b_stack, stack->b_size);
-		}
-	}
-	stack->res_instrc++;
+	ft_putendl("sb");
 }
 
-void	do_ss(t_stack *stack)
+void	do_ss(t_stack *stacks)
 {
-	int tmp_instrc;
-	int tmp_stack;
+	int	tmp;
 
-	tmp_instrc = stack->prnt_instrc;
-	tmp_stack = stack->show_stack;
-	stack->prnt_instrc = 0;
-	stack->show_stack = 0;
-	do_sa(stack);
-	do_sb(stack);
-	stack->prnt_instrc = tmp_instrc;
-	stack->show_stack = tmp_stack;
-	stack->prnt_instrc ? write(1, "ss\n", 3) : 0;
-	if (stack->show_stack)
+	if (stacks->a_size > 1)
 	{
-		write(1, "B: ", 3);
-		ft_print_array(stack->a_stack, stack->a_size);
-		if (stack->b_size)
-		{
-			write(1, "B: ", 3);
-			ft_print_array(stack->b_stack, stack->b_size);
-		}
+		tmp = stacks->a_stack[0];
+		stacks->a_stack[0] = stacks->a_stack[1];
+		stacks->a_stack[1] = tmp;
 	}
-	stack->res_instrc++;
+	if (stacks->b_size > 1)
+	{
+		tmp = stacks->b_stack[0];
+		stacks->b_stack[0] = stacks->b_stack[1];
+		stacks->b_stack[1] = tmp;
+	}
+	ft_putendl("ss");
+
 }
 
 void	do_pa(t_stack *stack)
@@ -92,26 +63,15 @@ void	do_pa(t_stack *stack)
 	if (stack->b_size == 0)
 		return ;
 	i = stack->a_size;
-	while (i-- > 0)
+	while (i--)
 		stack->a_stack[i + 1] = stack->a_stack[i];
 	stack->a_stack[0] = stack->b_stack[0];
 	i = 0;
-	while (i++ <= stack->b_size)
+	while (i++ <= stack->b_size - 1)
 		stack->b_stack[i - 1] = stack->b_stack[i];
 	stack->a_size++;
 	stack->b_size--;
-	stack->prnt_instrc ? write(1, "pa\n", 3) : 0;
-	if (stack->show_stack)
-	{
-		write(1, "A: ", 3);
-		ft_print_array(stack->a_stack, stack->a_size);
-		if (stack->b_size)
-		{
-			write(1, "B: ", 3);
-			ft_print_array(stack->b_stack, stack->b_size);
-		}
-	}
-	stack->res_instrc++;
+	ft_putendl("pa");
 }
 
 void	do_pb(t_stack *stack)
@@ -121,20 +81,13 @@ void	do_pb(t_stack *stack)
 	if (stack->a_size == 0)
 		return ;
 	i = stack->b_size;
-	while (i-- > 0)
-		stack->a_stack[i - 1] = stack->a_stack[1];
+	while (i--)
+			stack->b_stack[i + 1] = stack->b_stack[i];
+	stack->b_stack[0] = stack->a_stack[0];
+	i = 0;
+	while (i++ <= stack->a_size - 1)
+		stack->a_stack[i - 1] = stack->a_stack[i];
 	stack->b_size++;
-	stack->a_size++;
-	stack->prnt_instrc ? write(1, "pb\n", 3) : 0;
-	if (stack->show_stack)
-	{
-		write(1, "A: ", 3);
-		ft_print_array(stack->a_stack, stack->a_size);
-		if (stack->b_size)
-		{
-			write(1, "B: ", 3);
-			ft_print_array(stack->b_stack, stack->b_size);
-		}
-	}
-	stack->res_instrc++;
+	stack->a_size--;
+	ft_putendl("pb");
 }

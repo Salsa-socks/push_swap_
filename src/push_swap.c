@@ -6,35 +6,22 @@
 /*   By: bnkosi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/07 10:08:43 by bnkosi            #+#    #+#             */
-/*   Updated: 2019/08/12 13:18:59 by bnkosi           ###   ########.fr       */
+/*   Updated: 2019/08/17 10:33:03 by bnkosi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int			main(int argc, char **argv)
+int			main(int ac, char **av)
 {
-	t_stack	*stack;
-	int		opts;
+	t_stack	*stacks;
 
-	(argc-- == 1) ? exit(0) : argv++;
-	stack = (t_stack *)malloc(sizeof(t_stack));
-	opts = parse_opts(&argc, &argv, stack);
-	if (argc == 1)
+	if (ac > 1)
 	{
-		argv = ft_strsplit(argv[0], ' ');
-		argv = 0;
-		while (argv && argv[argc])
-			argc++;
-		if (argc == 0)
-		{
-			ft_putstr_fd("Error\n", 2);
-			exit(1);
-		}
+		stacks = (t_stack *)malloc(sizeof(t_stack));
+		check_av(stacks, av, ac);
+		sort(stacks);
+		del_stacks(&stacks);
 	}
-	initialize_stack(stack, argc);
-	stack = parse_args(argc, argv, stack);
-	sort(stack);
-	free(stack);
 	return (0);
 }

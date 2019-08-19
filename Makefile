@@ -6,7 +6,7 @@
 #    By: bnkosi <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/08/11 11:53:18 by bnkosi            #+#    #+#              #
-#    Updated: 2019/08/13 09:04:42 by bnkosi           ###   ########.fr        #
+#    Updated: 2019/08/16 06:12:27 by bnkosi           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ OBJ_PATH	=	./obj/
 OBJ_DIR			= 	obj
 
 PSSRC		=	$(NAME_1).c\
-				parse_args.c\
+				make_stacks.c\
 				do_instrc.c\
 				do_rr.c\
 				do_rrr.c \
@@ -38,7 +38,7 @@ PSSRC		=	$(NAME_1).c\
 					
 
 CHSRC		=	$(NAME_2).c\
-				parse_args.c\
+				make_stacks.c\
 				do_instrc.c\
 				do_rr.c\
 				do_rrr.c \

@@ -6,7 +6,7 @@
 /*   By: bnkosi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/12 07:48:53 by bnkosi            #+#    #+#             */
-/*   Updated: 2019/08/13 07:50:52 by bnkosi           ###   ########.fr       */
+/*   Updated: 2019/08/16 07:44:13 by bnkosi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,19 @@ int rev_sorted(int *stack, int len)
 			return (0);
 	}
 	return (1);
+}
+
+void	del_stacks(t_stack **stacks)
+{
+	if (*stacks)
+	{
+		if ((*stacks)->a_stack)
+			free((*stacks)->a_stack);
+		if ((*stacks)->b_stack)
+			free((*stacks)->b_stack);
+		free(*stacks);
+		*stacks = NULL;
+	}
 }
 
 void	free_stack(t_stack *stack)

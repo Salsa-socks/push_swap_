@@ -6,7 +6,7 @@
 /*   By: bnkosi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/21 09:50:20 by bnkosi            #+#    #+#             */
-/*   Updated: 2019/08/13 08:17:55 by bnkosi           ###   ########.fr       */
+/*   Updated: 2019/08/16 13:18:45 by bnkosi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,8 +64,13 @@ int				sorted(int *stack, int len);
 int				rev_sorted(int *stack, int len);
 void			free_stack(t_stack *stack);
 void			free_moves(m_moves *moves);
+void			del_stacks(t_stack **stacks);
+void			check_av(t_stack *stacks, char **av, int ac);
+//static int		validate_int(char **split, char *nbr, int bgn);
+//static int		make_stacks(t_stack *stacks, char **split, int count);
 //static int		get_instruction(t_stack *stack, char *instr);
 //static void		split_args(int argc, char **argv, t_stack *stack);
+void			print_stacks(t_stack *stacks);
 int				find_in_a(int *stack, int len, int el, char **rot_type);
 //static void		insert_in_a(t_stack *stack);
 void			global_sort(t_stack *stack);

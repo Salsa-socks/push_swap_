@@ -6,7 +6,7 @@
 /*   By: bnkosi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/28 12:03:34 by bnkosi            #+#    #+#             */
-/*   Updated: 2019/08/13 08:15:48 by bnkosi           ###   ########.fr       */
+/*   Updated: 2019/08/16 13:52:48 by bnkosi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ static int		find_in_b(int *stack, int l, int el, char **rot_type)
 
 	i = 0;
 	place = 0;
-	if (l == 2 && el > stack[0] && el < stack[l - 1])
+	if (l == 2 && el > stack[0] && el < stack[1])
 		place = 0;
-	else if (l == 2 && el < stack[0] && el > stack[l - 1])
+	else if (l == 2 && el < stack[0] && el > stack[1])
 		place = 1;
 	else if (el > stack[max_elem(stack, l)] || el < stack[min_elem(stack, l)])
 		place = max_elem(stack, l);

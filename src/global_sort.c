@@ -6,7 +6,7 @@
 /*   By: bnkosi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/28 10:53:03 by bnkosi            #+#    #+#             */
-/*   Updated: 2019/08/12 14:45:57 by bnkosi           ###   ########.fr       */
+/*   Updated: 2019/08/17 10:30:48 by bnkosi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int			find_in_a(int *stack, int len, int elem, char **rot_type)
 	i = 0;
 	place = 0;
 	if(len == 2 && elem > stack[0] && elem < stack[1])
-		place = -1;
+		place = 1;
 	else if (len == 2 && elem < stack[0] && elem > stack[1])
 		place = 0;
 	else if (elem > stack[max_elem(stack, len)] || elem < stack[min_elem(stack, len)])
@@ -102,12 +102,12 @@ static void	process_moves(m_moves *bst_move, t_stack *stack)
 void		global_sort(t_stack *stack)
 {
 	m_moves *bst_move;
-	int		bestest;
+	int		optimal;
 
-	bestest = (stack->a_size > 200) ? 50: 2;
+	optimal = (stack->a_size > 200) ? 50: 2;
 	while (stack->b_size != 2)
 		do_pb(stack);
-	while (stack->a_size > bestest)
+	while (stack->a_size > optimal)
 	{
 		bst_move = bst_a_to_b(stack);
 		while (bst_move->c_moves)
