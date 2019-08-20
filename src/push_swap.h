@@ -6,7 +6,7 @@
 /*   By: bnkosi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/21 09:50:20 by bnkosi            #+#    #+#             */
-/*   Updated: 2019/08/19 08:49:14 by bnkosi           ###   ########.fr       */
+/*   Updated: 2019/08/20 12:06:34 by bnkosi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,18 @@ void			do_ss(t_stack *stack);
 void			do_pa(t_stack *stack);
 void			do_pb(t_stack *stack);
 void			do_instrc(t_stack *stack);
+void			do_ra_no(t_stack *stack);
+void			do_rb_no(t_stack *stack);
+void			do_rr_no(t_stack *stack);
+void			do_rra_no(t_stack *stack);
+void			do_rrb_no(t_stack *stack);
+void			do_rrr_no(t_stack *stack);
+void			do_sa_no(t_stack *stack);
+void			do_sb_no(t_stack *stack);
+void			do_ss_no(t_stack *stack);
+void			do_pa_no(t_stack *stack);
+void			do_pb_no(t_stack *stack);
+void			do_instrc_no(t_stack *stack);
 int				min_elem(int *stack, int slen);
 int				max_elem(int *stack, int slen);
 void			first_a(t_stack *stack);

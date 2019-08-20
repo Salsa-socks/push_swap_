@@ -6,7 +6,7 @@
 /*   By: bnkosi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/06 06:54:30 by bnkosi            #+#    #+#             */
-/*   Updated: 2019/08/19 08:22:16 by bnkosi           ###   ########.fr       */
+/*   Updated: 2019/08/20 12:08:28 by bnkosi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,13 @@
 static	int	do_rot(t_stack *stacks, char *in)
 {
 	if (in[2] == '\0')
-		do_rr(stacks);
+		do_rr_no(stacks);
 	else if (in[2] == 'a' && in[3] == '\0')
-		do_rra(stacks);
+		do_rra_no(stacks);
 	else if (in[2] == 'b' && in[3] == '\0')
-		do_rrb(stacks);
+		do_rrb_no(stacks);
 	else if (in[2] == 'r' && in[3] == '\0')
-		do_rrr(stacks);
+		do_rrr_no(stacks);
 	else
 		return (-1);
 	return (0);
@@ -35,19 +35,19 @@ static	int	do_ins(t_stack *stacks, char *in)
 			return (-1);
 	}
 	else if (ft_strequ(in, "sa"))
-		do_sa(stacks);
+		do_sa_no(stacks);
 	else if (ft_strequ(in, "sb"))
-		do_sb(stacks);
+		do_sb_no(stacks);
 	else if (ft_strequ(in, "ss"))
-		do_ss(stacks);
+		do_ss_no(stacks);
 	else if (ft_strequ(in, "pa"))
-		do_pa(stacks);
+		do_pa_no(stacks);
 	else if (ft_strequ(in, "pb"))
-		do_pb(stacks);
+		do_pb_no(stacks);
 	else if (ft_strequ(in, "ra"))
-		do_ra(stacks);
+		do_ra_no(stacks);
 	else if (ft_strequ(in, "rb"))
-		do_rb(stacks);
+		do_rb_no(stacks);
 	else
 		return (-1);
 	return (0);
